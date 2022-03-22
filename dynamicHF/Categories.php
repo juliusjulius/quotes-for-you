@@ -25,24 +25,18 @@ class Categories
 
                 <div class="row text-center ">
                     <div class="col-sm text-center shadow post">
-                        <div class="text"><p>„ <?php echo $Post->getText(); ?>“</p></div>
+                        <div class="text"><p>&#8221; <?php echo $Post->getText(); ?> &#8220;</p></div>
                         <div class="author"><p>- <?php echo $Post->getAuthor(); ?></p></div>
                         <div class="vote">
                             <div class="voteArrw">
 
-                                <form class="formIn" method="POST"  >
-                                    <input type="hidden" name="id" value="<?php echo $Post->getId(); ?>">
                                     <!--ziskam si ID postu-->
-                                    <input class="downVote"  type="submit" value="&#9661;" name="downVote">
-                                </form>
+                                <button class="downVote voteButton" data-vote-type="down"  data-post-id="<?php echo $Post->getId(); ?>">&#9661;</button>
 
-                                <p><?php echo $post->getVoteStat($Post->getId()); ?></p>
+                                <p class="postVotes" data-post-id="<?php echo $Post->getId(); ?>"><?php echo $post->getVoteStat($Post->getId()); ?></p>
 
-                                <form class="formIn" method="POST" >
-                                    <input type="hidden" name="id" value="<?php echo $Post->getId(); ?>">
                                     <!--ziskam si ID postu-->
-                                    <input class="downVote" type="submit" value="&#8420;"  name="upVote">
-                                </form>
+                                <button class="downVote voteButton" data-vote-type="up" data-post-id="<?php echo $Post->getId(); ?>">&#9651;</button>
 
                             </div>
                         </div>
@@ -51,11 +45,40 @@ class Categories
 
             <?php } ?>
         </div>
+        <script>
+            $(function(){
 
+                $(".voteButton").on("click", function(e) {
+                    e.preventDefault();
+
+                    var postID = $(this).attr("data-post-id");
+                    var data = { id: postID };
+                    if($(this).attr("data-vote-type") == "up") {
+                        data['upVote'] = true;
+                    } else {
+                        data['downVote'] = true;
+                    }
+
+                    $.ajax({
+                        method: "POST",
+                        url: "/semestralka/postajax.php",
+                        data: data,
+                        success: function(response) {
+                            console.log(response);
+                            $('p[data-post-id='+postID+']').text(response);
+                        }
+                    });
+
+                })
+
+            })
+        </script>
 
         <?php include('dynamicHF/footer.php');
     }
 } ?>
+
+
 
 
 

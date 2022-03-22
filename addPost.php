@@ -2,7 +2,7 @@
 session_start();
 include "Posts/PostCrude.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['text']) && !empty($_POST['author'])) {
     $post = new PostCrude();
 }
 ?>
@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php require('dynamicHF/header.php'); ?>
 
 
-    <form method="POST">
+    <form name="addPostForm" method="POST" onsubmit="return validateAddPost()">
         <div class="jumbotron shadow bg-white rounded text-center ">
             <h1>Pridať citát</h1>
             <p>Pre pridanie citátu vyplňte nasledujúce údaje.</p>
@@ -21,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <!--<label for="author">Autor</label>-->
                 <textarea name="author" id="author" class="md-textarea form-control shadow form-rounded"
                           placeholder="Sem napíšte meno autora..." rows="1"
-                          required></textarea>
+                          ></textarea>
             </div>
 
             <div class="md-form mb-4">
                 <!--<label for="text">Tu môžte napísať citát...</label>-->
                 <textarea name="text" id="text" class="md-textarea form-control shadow form-rounded"
-                          placeholder="Sem napíšte citát..." rows="3" required></textarea>
+                          placeholder="Sem napíšte citát..." rows="3" ></textarea>
             </div>
             <hr>
 

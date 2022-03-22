@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['password'])) {
 
                     <div class="form-group">
                         <!--<label for="email"><b>Email</b></label>-->
-                        <input class="text-center form-control form-rounded shadow" type="email"
+                        <input class="text-center form-control form-rounded shadow" type="text"
                                placeholder="Emailová adresa" id="email" name="email">
                     </div>
                 </div>
@@ -78,8 +78,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['password'])) {
             <p>Už ste zaregistrovaný ? <br> <a href="login.php">Prihlásiť</a></p>
         </div>
     </div>
-
 </form>
+
+<script>
+    $(function(){
+
+        $(".voteButton").on("click", function(e) {
+            e.preventDefault();
+
+            var postID = $(this).attr("data-post-id");
+            var data = { id: postID };
+            if($(this).attr("data-vote-type") == "up") {
+                data['upVote'] = true;
+            } else {
+                data['downVote'] = true;
+            }
+
+            $.ajax({
+                method: "POST",
+                url: "/semestralka/postajax.php",
+                data: data,
+                success: function(response) {
+                    console.log(response);
+                    $('p[data-post-id='+postID+']').text(response);
+                }
+            });
+
+        })
+
+    })
+</script>
+
 <div class="spacerregistration"></div>
 
 

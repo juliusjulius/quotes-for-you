@@ -30,15 +30,15 @@ class ActionRegister
         $gender = $this->db->getDb()->real_escape_string($param['gender']);
 
 
-        $getEmail = $this->db->getDb()->prepare("SELECT * FROM contact WHERE email=?");
-        $getEmail->bind_param('s', $email);
+        /* $getEmail = $this->db->getDb()->prepare("SELECT * FROM contact WHERE email=?");
+         $getEmail->bind_param('s', $email);
 
-        if ($getEmail->execute()) {
-            $results = $getEmail->get_result();
-            if ($results->num_rows > 0) {
-                $mailErr = "Emailová adresa sa už používa.";
-                header("Location: http://localhost/semestralka/registration.php?msgmail=" . $mailErr);
-            } else {
+         if ($getEmail->execute()) {
+             $results = $getEmail->get_result();                                        //heh
+             if ($results->num_rows > 0) {
+                 $mailErr = "Emailová adresa sa už používa.";
+                 header("Location: http://localhost/semestralka/registration.php?msgmail=" . $mailErr);
+             } else {*/
                 $getUsername = $this->db->getDb()->prepare("SELECT * FROM login WHERE username=?");
                 $getUsername->bind_param('s', $username);
 
@@ -57,8 +57,8 @@ class ActionRegister
                         }
                     }
                 }
-            }
-        }
+           // }
+    //    }
         return false;
     }
 

@@ -21,9 +21,6 @@ class PostCrude
             } else {                                                                                                  /*a ak bol zaslany submit tak sa zavola nasledujuca metoda$$*/
                 if(isset($_SESSION['login'])) {
                     $this->voteForPost($_POST);
-                }else {
-                    $message = "Pre hlasovanie musíte byť prihlásený.";
-                    echo "<script type='text/javascript'>alert('$message');</script>";
                 }
             }
         }
