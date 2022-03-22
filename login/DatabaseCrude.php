@@ -5,7 +5,7 @@
 class DatabaseCrude
 {
 
-    public $db;
+    private $db;
 
     public function __construct()
     {

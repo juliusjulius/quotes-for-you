@@ -31,10 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <hr>
 
-            <button type="submit" class="btn btn-light shadow">Prihlásiť</button>
+            <button type="submit" class="btn btn-light shadow">Odoslať</button>
 
             <div>
-            <?php if (isset($_GET['msgrgstr'])) echo($_GET['msgrgstr']); ?>
+                <?php if (isset($_GET['msgrgstr'])) echo($_GET['msgrgstr']); ?>
             </div>
 
             <div class="errMsg">

@@ -2,11 +2,12 @@
 
 class Database
 {
-    public $db;
+    private $db;
 
     public function __construct()
     {
         $this->db = new mysqli('localhost', 'root', '', 'my_db');
+        mysqli_set_charset($this->db,"utf8");
         $this->checkDBErrors();
     }
 

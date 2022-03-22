@@ -96,15 +96,14 @@ body {
         max-width: 100%;
     }
 }
+/* FOOTER *****************************/
+
 
 /*vycentrovanie pre jumbotrony v kategoriach*/
 .categoryJumbo{
     margin-top: 25vh;
     margin-bottom: 20vh;
 }
-
-/* FOOTER *****************************/
-
 
 .btn {
     margin-bottom: 5%;
@@ -129,6 +128,16 @@ body {
     margin-left: auto;
 }
 
+.arrow{
+    font-size: 50px;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 5vh;
+
+}
+
+
+/*POSTS****************************************************************/
+
 /* Vycentrovanie jednotlivých citatov*/
 .post {
     position: relative;
@@ -138,15 +147,29 @@ body {
     display: block;
 }
 
-.arrow{
-    font-size: 50px;
+.text p{
     font-family: 'Great Vibes', cursive;
-    margin-bottom: 5vh;
+    font-size: 1.8vw;
+}
 
+@media screen and (max-width: 1400px) {
+    div.text p {
+        font-size: 2.9vw;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    div.text p {
+        font-size: 5vw;
+    }
+}
+
+.author{
+    color: darkgrey;
 }
 
 
-
+/*POSTS****************************************************************/
 
 
 

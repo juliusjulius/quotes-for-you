@@ -21,8 +21,6 @@ class ActionRegister
 
     public function checkData($param)
     {
-        session_start();
-        $_SESSION['message'] = '';
         $username = $this->db->getDb()->real_escape_string($param['username']);
         $password = $this->db->getDb()->real_escape_string($param['password']);
         $name = $this->db->getDb()->real_escape_string($param["name"]);

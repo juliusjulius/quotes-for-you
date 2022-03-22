@@ -3,6 +3,7 @@
 <head>
     <title>Semestrálna práca</title>
     <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="images/favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -64,6 +65,7 @@
                     <a href="fPokora.php" class="nav-item bold nav-link">O pokore</a>
                 </div>
                 <div class="navbar-nav ml-auto">
+                    <a href="addPost.php" class="nav-item bold nav-link">Pridať citát</a>
                     <a href="logout.php?q=logout" class="nav-item bold nav-link">Odhlásenie</a>
                 </div>
             </div>
