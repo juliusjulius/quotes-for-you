@@ -34,7 +34,7 @@ class Categories
                                     <input type="hidden" name="id" value="<?php echo $Post->getId(); ?>">  <!--ziskam si ID postu-->
                                    <input  class="downVote" type="submit" value="&#9661;" id="downVote" name="downVote">
                             </form>
-                                    <p>39</p>
+                                    <p><?php echo $post->getVoteStat($Post->getId()); ?></p>
                             <form class="formIn" method="POST">
                                 <input type="hidden" name="id" value="<?php echo $Post->getId(); ?>">  <!--ziskam si ID postu-->
                                     <input  class="downVote" type="submit" value="&#8420;" id="upVote" name="upVote">
