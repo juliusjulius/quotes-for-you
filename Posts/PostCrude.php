@@ -10,15 +10,19 @@ class PostCrude
     {
         $this->db = new Database();
 
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            if ($this->addPost($_POST)) {
-                $myMessage = "Citát bol úspešne pridaný.";
-            } else {
-                $myMessage = "Citát sa nepodarilo pridať.";
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {             /*v categories sa vždy vytvori inštancia, preto je nutné rozlišovať kde bol post zavolany */
+            if (isset($_POST['text'])) {                        /*ak je setnuty text tak sa inštancia vytvorila (to je default na nahravanie postov)*/
+                if ($this->addPost($_POST)) {
+                    $myMessage = "Citát bol úspešne pridaný.";
+                } else {
+                    $myMessage = "Citát sa nepodarilo pridať.";
+                }
+                header("Location: http://localhost/semestralka/addPost.php?msgAddPst=" . $myMessage);
+            }else {                                                                                                  /*a ak bol zaslany submit tak sa zavola nasledujuca metoda$$*/
+                $message = $_POST['id'];
+                echo "<script type='text/javascript'>alert('$message');</script>";
             }
-            header("Location: http://localhost/semestralka/addPost.php?msgAddPst=" . $myMessage);
         }
-
     }
 
 
