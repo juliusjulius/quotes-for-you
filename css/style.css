@@ -72,7 +72,7 @@ body {
 
 /* FOOTER *****************************/
 .footer {
-    position: absolute;
+    position: relative;
     width: 100%;
     bottom: 15px;
     text-align: center;
@@ -96,6 +96,7 @@ body {
         max-width: 100%;
     }
 }
+
 /* FOOTER *****************************/
 
 
@@ -129,6 +130,7 @@ body {
 }
 
 .arrow{
+    position:relative;
     font-size: 50px;
     font-family: 'Great Vibes', cursive;
     margin-bottom: 5vh;
@@ -171,5 +173,66 @@ body {
 
 /*POSTS****************************************************************/
 
+.spacerhome{
+    padding-top: 12vh;
+}
 
+@media screen and (max-width: 1400px) {
+    div.spacerhome {
+        padding-top: 28vh;
+    }
+}
 
+@media screen and (max-width: 601px) {
+    div.spacerhome {
+        padding-top: 24vh;
+    }
+}
+
+.spacerlogin{
+     padding-top: 18.2vh;
+ }
+
+@media screen and (max-width: 1400px) {
+    div.spacerlogin {
+        padding-top: 28vh;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    div.spacerlogin {
+        padding-top: 30vh;
+    }
+}
+
+.spacerregistration{
+    padding-top: 6vh;
+}
+
+@media screen and (max-width: 1400px) {
+    div.spacerregistration {
+        padding-top: 10vh;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    div.spacerregistration {
+        padding-top: 1vh;
+    }
+}
+
+.spacerAddPost{
+    padding-top: 9vh;
+}
+
+@media screen and (max-width: 1400px) {
+    div.spacerAddPost {
+        padding-top: 10vh;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    div.spacerAddPost {
+        padding-top: 19vh;
+    }
+}
