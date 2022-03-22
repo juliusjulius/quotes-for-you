@@ -13,10 +13,6 @@ class ActionRegister
         $this->db = new Database();
         $this->register = new DatabaseCrude();
 
-        if ($this->checkData($_POST)) {
-            $myMessage = "Registracia prebehla úspešne, môžete sa prihlásiť.";
-            header("Location: http://localhost/semestralka/login.php?msgrgstr=" . $myMessage);
-        }
     }
 
     public function checkData($param)
@@ -39,26 +35,26 @@ class ActionRegister
                  $mailErr = "Emailová adresa sa už používa.";
                  header("Location: http://localhost/semestralka/registration.php?msgmail=" . $mailErr);
              } else {*/
-                $getUsername = $this->db->getDb()->prepare("SELECT * FROM login WHERE username=?");
-                $getUsername->bind_param('s', $username);
+        $getUsername = $this->db->getDb()->prepare("SELECT * FROM login WHERE username=?");
+        $getUsername->bind_param('s', $username);
 
-                if ($getUsername->execute()) {
-                    $results = $getUsername->get_result();
-                    if ($results->num_rows > 0) {
-                        $usrnmErr = "Tento nick sa už používa.";
-                        header("Location: http://localhost/semestralka/registration.php?msgusrnm=" . $usrnmErr);
-                    } else {
-                        $user = new User($username, $password, $name, $last_name, $address, $email, $gender);
-                        try {
-                            $this->register->insertUser($user);
-                            return true;
-                        } catch (Exception $e) {
-                            echo 'Message: ' . $e->getMessage();
-                        }
-                    }
+        if ($getUsername->execute()) {
+            $results = $getUsername->get_result();
+            if ($results->num_rows > 0) {
+                return false;
+            } else {
+                $user = new User($username, $password, $name, $last_name, $address, $email, $gender);
+                try {
+                    $this->register->insertUser($user);
+                    return true;
+                } catch (Exception $e) {
+                    echo 'Message: ' . $e->getMessage();
                 }
-           // }
-    //    }
+                return true;
+            }
+        }
+        // }
+        //    }
         return false;
     }
 

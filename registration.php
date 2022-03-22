@@ -1,13 +1,10 @@
 <?php
 include "login/ActionRegister.php";
-if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['password'])) {
-    $reg = new ActionRegister();
-}
 ?>
 <?php require('dynamicHF/header.php'); ?>
 
 
-<form method="POST" name="regForm" onsubmit="return validateRegistration()">
+<form method="POST" name="regForm" id="regFormID">
     <div class="jumbotron shadow bg-white rounded text-center reg ">
         <div class="container">
             <h1>Registrácia</h1>
@@ -61,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['password'])) {
                 <label for="gender"><b>Pohlavie</b></label><br>
                 <input class="inputbtn" type="radio" id="gender" name="gender" value="M"> Muž
                 <input class="inputbtn" type="radio" id="gender1" name="gender" value="Z"> Žena
-                <input class="inputbtn" type="radio" id="gender2" name="gender" value="I"> Iné
+                <input class="inputbtn" type="radio" id="gender2" name="gender" value="I" checked="checked"> Iné
                 <hr>
 
             </div>
@@ -81,28 +78,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['password'])) {
 </form>
 
 <script>
-    $(function(){
+    $(function () {
 
-        $(".voteButton").on("click", function(e) {
+        $("#regFormID").on("submit", function (e) {
             e.preventDefault();
-
-            var postID = $(this).attr("data-post-id");
-            var data = { id: postID };
-            if($(this).attr("data-vote-type") == "up") {
-                data['upVote'] = true;
-            } else {
-                data['downVote'] = true;
-            }
-
-            $.ajax({
-                method: "POST",
-                url: "/semestralka/postajax.php",
-                data: data,
-                success: function(response) {
-                    console.log(response);
-                    $('p[data-post-id='+postID+']').text(response);
-                }
-            });
+            let form = $(this);
+            if (validateRegistration())
+                $.ajax({
+                    method: "POST",
+                    url: "/semestralka/postajax2.php",
+                    data: form.serialize(),
+                    success: function (response) {
+                        //  alert(response);
+                        if (response == "true") {
+                            window.location.href = '/semestralka/login.php';
+                            alert("Registracia prebehla úspešne, môžete sa prihlásiť.");
+                        } else {
+                            alert("Používatelské meno sa už používa.")
+                        }
+                    }
+                });
 
         })
 
@@ -110,7 +105,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['password'])) {
 </script>
 
 <div class="spacerregistration"></div>
-
 
 
 <?php include('dynamicHF/footer.php'); ?>
