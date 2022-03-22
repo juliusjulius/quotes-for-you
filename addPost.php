@@ -34,9 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div>
                 <label for="vyberte"><b>Vyberte karegóriu citátu</b></label><br>
                 <select id="vyberte" name="type">
-                    <option name="option" value="alkohol">O alkohole</option>
-                    <option name="option" value="mudrost">O múdrosti</option>
-                    <option name="option" value="pokora">O pokore</option>
+                    <option  value="alkohol">O alkohole</option>
+                    <option  value="mudrost">O múdrosti</option>
+                    <option  value="pokora">O pokore</option>
                 </select>
 
             </div>

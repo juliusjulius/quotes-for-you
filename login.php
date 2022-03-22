@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <?php require('dynamicHF/header.php'); ?>
 
 
-<form method="POST">
+<form name="logForm" method="POST" onsubmit="return validateLogin()">
     <div class="jumbotron shadow bg-white rounded text-center ">
         <h1>Prihlásenie</h1>
         <p>Pre prihlásenie vyplňte nasledujúce údaje.</p>
@@ -17,13 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-group loginput">
             <!--  <label for="username"><b>Username</b></label> -->
             <input class="form-control form-rounded text-center shadow" type="text" placeholder="Používatelské meno"
-                   id="username" name="username" required>
+                   id="username" name="username" >
         </div>
 
         <div class="form-group loginput">
             <!-- <label for="password"><b>Password</b></label> -->
             <input class="form-control form-rounded text-center shadow" type="password" placeholder="Heslo"
-                   id="password" name="password" required>
+                   id="password" name="password">
         </div>
         <hr>
 
@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 </form>
+
 <div class="spacerlogin"></div>
 <?php include('dynamicHF/footer.php'); ?>
 
