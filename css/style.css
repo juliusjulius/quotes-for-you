@@ -264,3 +264,7 @@ body {
     font-size: 2.2vh;
 }
 /*VOTE Buttons**************************/
+
+.formIn{
+    display: inline;
+}

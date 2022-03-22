@@ -29,14 +29,17 @@ class Categories
                         <div class="text"><p>„ <?php echo $Post->getText(); ?>“</p></div>
                         <div class="author"><p>- <?php echo $Post->getAuthor(); ?></p></div>
                         <div class="vote">
-                            <form method="POST">
                                 <div class="voteArrw">
-                                    <input type="hidden" name="id" value="<?php echo $Post->getAuthor(); ?>" >      //
+                                    <form class="formIn" method="POST">
+                                    <input type="hidden" name="id" value="<?php echo $Post->getId(); ?>">  <!--ziskam si ID postu-->
                                    <input  class="downVote" type="submit" value="&#9661;" id="downVote" name="downVote">
-                                    <p>39</p>
-                                    <input  class="downVote" type="submit" value="&#8420;" id="upVote" name="upVote">
-                                </div>
                             </form>
+                                    <p>39</p>
+                            <form class="formIn" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $Post->getId(); ?>">  <!--ziskam si ID postu-->
+                                    <input  class="downVote" type="submit" value="&#8420;" id="upVote" name="upVote">
+                            </form>
+                                </div>
                         </div>
                     </div>
                 </div>
