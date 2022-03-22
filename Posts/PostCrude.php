@@ -41,7 +41,6 @@ class PostCrude
         $wantedPosts = array();
         $findPost = $this->db->getDb()->prepare("SELECT * FROM posts WHERE type=?");
         $findPost->bind_param('s', $param);
-
         if ($findPost->execute()) {
             $results = $findPost->get_result();
             if ($results->num_rows > 0) {

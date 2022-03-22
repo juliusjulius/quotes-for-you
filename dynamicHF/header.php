@@ -21,6 +21,7 @@
 </head>
 
 <body>
+<?php setlocale(LC_CTYPE, 'sk_SK');?>
 <div class="my_container">
     <?php if (!isset($_SESSION['login'])){ ?>
         <div class="navbarNeprihlaseny ">

@@ -1,7 +1,6 @@
 <?php
 session_start();
 include "Posts/PostCrude.php";
-
 $post = new PostCrude();
 ?>
 <?php require('dynamicHF/header.php'); ?>
@@ -23,7 +22,7 @@ $post = new PostCrude();
 
         <div class="row text-center ">
             <div class="col-sm text-center shadow post">
-                <div class="text"><p><?php echo utf8_encode($Post->getText()); ?></p></div>
+                <div class="text"><p><?php echo $Post->getText(); ?></p></div>
                 <div class="author"><p>- <?php echo utf8_encode($Post->getAuthor()); ?></p></div>
             </div>
         </div>
