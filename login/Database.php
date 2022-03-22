@@ -10,6 +10,13 @@ class Database
         $this->checkDBErrors();
     }
 
+    private function checkDBErrors()
+    {
+        if ($this->db->error) {
+            die("DB CHYBA:" . $this->db->error);
+        }
+    }
+
     /**
      * @return mysqli
      */
@@ -21,12 +28,5 @@ class Database
     public function __destruct()
     {
         $this->db->close();
-    }
-
-    private function checkDBErrors()
-    {
-        if ($this->db->error) {
-            die("DB CHYBA:" . $this->db->error);
-        }
     }
 }

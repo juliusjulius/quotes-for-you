@@ -13,7 +13,7 @@ class ActionLogin
         $this->login = new DatabaseCrude();
 
         if ($this->checkData($_POST)) {
-            header("location:home.php");
+            header("location: home.php");
         } else {
             $myMessage = "Nepodarilo sa prihlásiť, zlý nick, alebo heslo.";
             header("Location: http://localhost/semestralka/login.php?mymessage=" . $myMessage);
@@ -30,21 +30,16 @@ class ActionLogin
         $getUsername->bind_param('s', $username);
         if ($getUsername->execute()) {
             $results = $getUsername->get_result();
-            if ($results->num_rows > 0  ) {
+            if ($results->num_rows > 0) {
                 $userData = $results->fetch_array();
-                if ( password_verify($password, $userData['password']) ){
+                if (password_verify($password, $userData['password'])) {
                     $_SESSION['username'] = $username;
                     $_SESSION["login"] = true;
                     return true;
                 }
             }
-        } return false;
+        }
+        return false;
     }
 
-
-
-   // public function user_logout() {
-   //         $_SESSION['login'] = false;
-   //         session_destroy();
-    //    }
 }

@@ -1,44 +1,51 @@
 <?php
 session_start();
-include "ActionLogin.php";
+include "login/ActionLogin.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = new ActionLogin();
 }
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Page Title</title>
-</head>
-<body>
-
-<form method="POST">
-    <div class="container">
-        <h1>Login</h1>
-        <p>Please fill in this form to login account.</p>
-        <hr>
-
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
-
-        <label for="password"><b>Password</b></label>
-        <input type="text" placeholder="Enter Password" name="password" required>
-        <hr>
+<?php include('dynamicHF/footer.php'); ?>
+<?php require('dynamicHF/header.php'); ?>
 
 
-        <button type="submit" class="loginbtn">Login</button>
-    </div>
 
-    <div>
-        <?php
-           if(isset($_GET['mymessage'])) {
-               echo($_GET['mymessage']);
-           }
-         ?>
-    </div>
 
-</form>
 
-</body>
-</html>
+    <form method="POST">
+        <div class="jumbotron shadow bg-white rounded text-center ">
+            <h1>Prihlásenie</h1>
+            <p>Pre prihlásenie vyplňte nasledujúce údaje.</p>
+            <hr>
+
+            <div class="form-group loginput">
+                <!--  <label for="username"><b>Username</b></label> -->
+                <input class="form-control form-rounded text-center shadow" type="text" placeholder="Používatelské meno"
+                       id="username" name="username" required>
+            </div>
+
+            <div class="form-group loginput">
+                <!-- <label for="password"><b>Password</b></label> -->
+                <input class="form-control form-rounded text-center shadow" type="password" placeholder="Heslo"
+                       id="password" name="password" required>
+            </div>
+            <hr>
+
+            <button type="submit" class="btn btn-light shadow">Prihlásiť</button>
+
+            <div>
+            <?php if (isset($_GET['msgrgstr'])) echo($_GET['msgrgstr']); ?>
+            </div>
+
+            <div class="errMsg">
+                <?php if (isset($_GET['mymessage'])) echo($_GET['mymessage']); ?>
+            </div>
+
+            <div class="container signin">
+                <p>Nieste zaregistrovaný ? <br> <a href="registration.php">Zaregistrovať</a></p>
+            </div>
+        </div>
+    </form>
+
+
+

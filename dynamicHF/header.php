@@ -1,15 +1,5 @@
-<?php
-session_start();
-
-if (isset($_GET['q'])) {
-    $_SESSION['login'] = FALSE;
-    session_destroy();
-    header("location: index.php");
-}
-
-?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sk">
 <head>
     <title>Semestrálna práca</title>
     <meta charset="utf-8">
@@ -28,34 +18,35 @@ if (isset($_GET['q'])) {
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
-<?php if (!isset($_SESSION['login'])) { ?>
+<div class="my_container">
+    <?php if (!isset($_SESSION['login'])){ ?>
+        <div class="navbarNeprihlaseny ">
+            <nav class="navbar navbar-expand-md navbar-light bg-light shadow bg-white rounded">
+                <a href="home.php   " class="navbar-brand">
+                    <img src="images/navbarLogo.png" height="38" alt="web logo, smiley">
+                </a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <div class="navbarNeprihlaseny">
-        <nav class="navbar navbar-expand-md navbar-light bg-light shadow bg-white rounded">
-            <a href="#" class="navbar-brand">
-                <img src="images/navbarLogo.png" height="38" alt="web logo, smiley">
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav">
-                    <a href="#" class="nav bold nav-item nav-link active">Domov</a>
-                    <a href="#" class="nav-item bold nav-link">O alkohole</a>
-                    <a href="#" class="nav-item bold nav-link">O múdrosti</a>
-                    <a href="#" class="nav-item bold nav-link">O pokore</a>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="home.php" class="nav bold nav-item nav-link active">Domov</a>
+                        <a href="fAlkohol.php" class="nav-item bold nav-link">O alkohole</a>
+                        <a href="fMudrost.php" class="nav-item bold nav-link">O múdrosti</a>
+                        <a href="fPokora.php" class="nav-item bold nav-link">O pokore</a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <a href="login.php" class="nav-item bold nav-link">Prihlásenie</a>
+                        <a href="registration.php" class="nav-item bold  nav-link">Registrácia</a>
+                    </div>
                 </div>
-                <div class="navbar-nav ml-auto">
-                    <a href="login.php" class="nav-item bold nav-link">Prihlásenie</a>
-                    <a href="registration.php" class="nav-item bold  nav-link">Registrácia</a>
-                </div>
-            </div>
-        </nav>
-    </div>
+            </nav>
+        </div>
 
-<?php } else { ?>
+    <?php }else{ ?>
     <div class="navbarPrihlaseny">
         <nav class="navbar navbar-expand-md navbar-light bg-light shadow bg-white rounded">
             <a href="#" class="navbar-brand">
@@ -67,10 +58,10 @@ if (isset($_GET['q'])) {
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-                    <a href="#" class="nav bold nav-item nav-link active">Domov</a>
-                    <a href="#" class="nav-item bold nav-link">O alkohole</a>
-                    <a href="#" class="nav-item bold nav-link">O múdrosti</a>
-                    <a href="#" class="nav-item bold nav-link">O pokore</a>
+                    <a href="home.php" class="nav bold nav-item nav-link active">Domov</a>
+                    <a href="fAlkohol.php" class="nav-item bold nav-link">O alkohole</a>
+                    <a href="fMudrost.php" class="nav-item bold nav-link">O múdrosti</a>
+                    <a href="fPokora.php" class="nav-item bold nav-link">O pokore</a>
                 </div>
                 <div class="navbar-nav ml-auto">
                     <a href="logout.php?q=logout" class="nav-item bold nav-link">Odhlásenie</a>
@@ -79,12 +70,3 @@ if (isset($_GET['q'])) {
         </nav>
     </div>
 <?php } ?>
-
-</body>
-
-<div class="jumbotron shadow bg-white rounded">
-    <h1 class="Citaty">Citáty na každý deň</h1>
-    <p>Pevne veríme že nájdete tie najlepšie inšpiratívne citáty.</p>
-</div>
-
-</html>

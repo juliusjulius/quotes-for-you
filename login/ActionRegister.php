@@ -12,7 +12,11 @@ class ActionRegister
     {
         $this->db = new Database();
         $this->register = new DatabaseCrude();
-        $this->checkData($_POST);
+
+        if ($this->checkData($_POST)) {
+            $myMessage = "Registracia prebehla úspešne, môžete sa prihlásiť.";
+            header("Location: http://localhost/semestralka/login.php?msgrgstr=" . $myMessage);
+        }
     }
 
     public function checkData($param)
@@ -34,7 +38,8 @@ class ActionRegister
         if ($getEmail->execute()) {
             $results = $getEmail->get_result();
             if ($results->num_rows > 0) {
-                echo( "Email address is already taken!");    //$_SESSION['emailErr'] = "Email address is already taken!";
+                $mailErr = "Emailová adresa sa už používa.";
+                header("Location: http://localhost/semestralka/registration.php?msgmail=" . $mailErr);
             } else {
                 $getUsername = $this->db->getDb()->prepare("SELECT * FROM login WHERE username=?");
                 $getUsername->bind_param('s', $username);
@@ -42,11 +47,13 @@ class ActionRegister
                 if ($getUsername->execute()) {
                     $results = $getUsername->get_result();
                     if ($results->num_rows > 0) {
-                        echo("Username is already taken!");     //$_SESSION['message'] = "Username is already taken!"; /
+                        $usrnmErr = "Tento nick sa už používa.";
+                        header("Location: http://localhost/semestralka/registration.php?msgusrnm=" . $usrnmErr);
                     } else {
                         $user = new User($username, $password, $name, $last_name, $address, $email, $gender);
                         try {
                             $this->register->insertUser($user);
+                            return true;
                         } catch (Exception $e) {
                             echo 'Message: ' . $e->getMessage();
                         }
@@ -54,6 +61,7 @@ class ActionRegister
                 }
             }
         }
+        return false;
     }
 
 }

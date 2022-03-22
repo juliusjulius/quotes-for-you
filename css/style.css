@@ -1,0 +1,152 @@
+body {
+    background-color: white;
+    position: relative;
+    height: 100%;
+}
+
+.my_container{
+    height:100%;
+    position:relative;
+}
+
+/* NAVBAR *****************************/
+.navbarNeprihlaseny {
+    margin: 20px;
+}
+
+.navbarPrihlaseny {
+    margin: 20px;
+}
+
+.bold:hover {
+    font-weight: 500;
+}
+
+/* NAVBAR *****************************/
+
+/* HOME stredový img *****************************/
+.jumbotron {
+    position: relative;
+    margin-top: 7vh;
+   /* position: absolute;       takto to bolo dobre, ale problem s overlapingom
+     top: 45%;
+     left:50%;
+     transform: translate(-50%,-50%);*/
+    background-color: white;
+    max-width: 37%;
+    margin-left: auto;
+    margin-right: auto;
+  /*  z-index: -1;*/
+}
+
+@media screen and (max-width: 601px) {
+    div.jumbotron h1 {
+        font-size: 12vw;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    div.jumbotron {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    div.jumbotron {
+        max-width: 100%;
+    }
+}
+
+.jumbotron h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5.2vw;
+    text-align: center;
+}
+
+.jumbotron p {
+    text-align: center;
+}
+
+/* HOME stredový img *****************************/
+
+
+/* FOOTER *****************************/
+.footer {
+    position: absolute;
+    width: 100%;
+    bottom: 15px;
+    text-align: center;
+    font-size: 1vw;
+    color: darkgrey;
+    clear: both;
+    margin-bottom: 0;
+    z-index: 100;
+}
+
+@media screen and (max-width: 1400px) {
+    div.footer {
+        font-size: 1.5vw;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 601px) {
+    div.footer {
+        font-size: 2.7vw;
+        max-width: 100%;
+    }
+}
+
+/*vycentrovanie pre jumbotrony v kategoriach*/
+.categoryJumbo{
+    margin-top: 25vh;
+    margin-bottom: 20vh;
+}
+
+/* FOOTER *****************************/
+
+
+.btn {
+    margin-bottom: 5%;
+}
+
+.inputbtn{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.reg {
+    top: 50%;
+}
+
+.errMsg{
+    color: red;
+}
+
+.loginput{
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Vycentrovanie jednotlivých citatov*/
+.post {
+    position: relative;
+    padding: 3%;
+    margin: 5%;
+    min-width: 20%;
+    display: block;
+}
+
+.arrow{
+    font-size: 50px;
+    font-family: 'Great Vibes', cursive;
+    margin-bottom: 5vh;
+
+}
+
+
+
+
+
+
