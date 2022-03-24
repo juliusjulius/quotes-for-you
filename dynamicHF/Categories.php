@@ -61,7 +61,7 @@ class Categories
 
                     $.ajax({
                         method: "POST",
-                        url: "/semestralka/postajax.php",
+                        url: "./postajax.php",
                         data: data,
                         success: function(response) {
                             console.log(response);

@@ -16,8 +16,7 @@ class ActionLogin
             header("location: home.php");
         } else {
             $myMessage = "Nepodarilo sa prihlásiť, zlý nick, alebo heslo.";
-            header("Location: http://localhost/semestralka/login.php?mymessage=" . $myMessage);
-
+            header("Location: ./login.php?mymessage=" . $myMessage);
         }
     }
 

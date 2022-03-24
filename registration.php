@@ -86,12 +86,12 @@ include "login/ActionRegister.php";
             if (validateRegistration())
                 $.ajax({
                     method: "POST",
-                    url: "/semestralka/postajax2.php",
+                    url: "./postajax2.php",
                     data: form.serialize(),
                     success: function (response) {
                         //  alert(response);
                         if (response == "true") {
-                            window.location.href = '/semestralka/login.php';
+                            window.location.href = './login.php';
                             alert("Registracia prebehla úspešne, môžete sa prihlásiť.");
                         } else {
                             alert("Používatelské meno sa už používa.")

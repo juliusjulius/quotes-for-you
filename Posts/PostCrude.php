@@ -17,7 +17,7 @@ class PostCrude
                 } else {
                     $myMessage = "Citát sa nepodarilo pridať.";
                 }
-                header("Location: http://localhost/semestralka/addPost.php?msgAddPst=" . $myMessage);
+                header("Location: addPost.php?msgAddPst=" . $myMessage);
             } else {                                                                                                  /*a ak bol zaslany submit tak sa zavola nasledujuca metoda$$*/
                 if(isset($_SESSION['login'])) {
                     $this->voteForPost($_POST);

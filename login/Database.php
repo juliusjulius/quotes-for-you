@@ -6,7 +6,7 @@ class Database
 
     public function __construct()
     {
-        $this->db = new mysqli('localhost', 'root', '', 'my_db');
+        $this->db = new mysqli(getenv('HOST'), getenv('USERNAME'), getenv('PASSWORD'), getenv('DBNAME'));
         mysqli_set_charset($this->db,"utf8");
         $this->checkDBErrors();
     }
